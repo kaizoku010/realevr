@@ -4,6 +4,7 @@ import {
   amenities, type Amenity, type InsertAmenity,
   propertyTypes, type PropertyType, type InsertPropertyType
 } from "@shared/schema";
+import { getDb } from './db';
 
 export interface IStorage {
   // User methods
@@ -640,7 +641,15 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
-
-
-
+// export const storage = new MemStorage();
+export default async function handler(req, res) {
+  const db = getDb(); // Get a fresh DB client for each request
+  
+  try {
+    const result = await db.query.yourTable.findMany();
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Database error:', error);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+}

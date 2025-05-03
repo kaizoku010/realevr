@@ -589,7 +589,7 @@ export class MemStorage implements IStorage {
   
   async createProperty(insertProperty: InsertProperty): Promise<Property> {
     const id = this.propertyCurrentId++;
-    const property: Property = { 
+ const property: Property = { 
       ...insertProperty, 
       id, 
       isFeatured: insertProperty.isFeatured ?? false,
@@ -641,6 +641,5 @@ export class MemStorage implements IStorage {
 }
 
 export const storage = new MemStorage();
-
 
 

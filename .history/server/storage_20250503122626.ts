@@ -640,7 +640,13 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
-
+// export const storage = new MemStorage();
+export const storage = {
+  getAllProperties: async () => {
+    const db = getDb();
+    return await db.query.properties.findMany();
+  },
+  // Update other methods similarly
+};
 
 
