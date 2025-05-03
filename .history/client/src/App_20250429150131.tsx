@@ -16,7 +16,6 @@ import BankSalesPage from "@/pages/BankSalesPage";
 import NotFound from "@/pages/not-found";
 import { AuthProvider } from "@/hooks/use-auth";
 import { PaymentProvider } from "@/contexts/PaymentContext";
-import "./styles.css";
 
 function Router() {
   return (

@@ -1,0 +1,9 @@
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1291px !important;
+    }
+
+    #hero {
+        max-width: 1291px !important;
+    }
+  }

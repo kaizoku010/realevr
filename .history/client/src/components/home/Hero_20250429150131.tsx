@@ -16,7 +16,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
       </div>
-      <div id="hero" className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">Experience Kampala Properties Virtually</h1>
         <p className="text-lg md:text-xl mb-6">Explore Uganda's finest homes and apartments with immersive 360° tours</p>
         <div className="flex flex-wrap gap-3">
