@@ -1,5 +1,5 @@
 const API_URL = process.env.NODE_ENV === 'production'
-  ? 'https://realevr-oj32.onrender.com/api' // Replace with your actual Render domain
+  ? 'https://your-render-app.onrender.com/api' // Replace with your actual Render domain
   : '/api';
 
 export async function fetchProperties() {

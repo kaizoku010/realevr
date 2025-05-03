@@ -7,12 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm?: () => void;
-  propertyId?: number;
-  propertyTitle?: string;
-  paymentType?: string;
-  amount?: number;
-  successCallback?: (response: any) => void;
+  onConfirm: () => void;
 }
 
 export default function PaymentModal({ isOpen, onClose, onConfirm }: PaymentModalProps) {
@@ -40,9 +35,7 @@ export default function PaymentModal({ isOpen, onClose, onConfirm }: PaymentModa
     handleFlutterPayment({
       callback: (response) => {
         if (response.status === 'successful') {
-          if (onConfirm) {
-            onConfirm();
-          }
+          onConfirm();
         }
         closePaymentModal();
       },
@@ -73,4 +66,3 @@ export default function PaymentModal({ isOpen, onClose, onConfirm }: PaymentModa
     </Dialog>
   );
 }
-

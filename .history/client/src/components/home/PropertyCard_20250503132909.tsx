@@ -153,10 +153,10 @@ const handlePaymentConfirm = async (response: any) => {
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
-        propertyId={property.id}
-        propertyTitle={property.title}
-        paymentType="ViewingFee"
-        amount={10000} // 10,000 UGX for viewing rental properties
+        // propertyId={property.id}
+        // propertyTitle={property.title}
+        // paymentType="ViewingFee"
+        // amount={10000} // 10,000 UGX for viewing rental properties
         successCallback={handlePaymentConfirm}
       />
     </>

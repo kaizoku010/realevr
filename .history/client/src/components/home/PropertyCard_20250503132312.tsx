@@ -123,7 +123,7 @@ const handlePaymentConfirm = async (response: any) => {
             </Link>
           </div>
           <Button
-          id="btn" 
+          id 
             variant="outline" 
             className="w-full text-sm h-8 border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F]/5 transition-colors"
             onClick={handleScheduleClick}

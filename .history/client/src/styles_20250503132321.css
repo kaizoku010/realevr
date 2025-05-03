@@ -9,6 +9,6 @@
     }
   }
 
-  #btn:hover {
-    background-color: #ff5a5f;
+  #btn {
+    margin-top: 1rem;
   }

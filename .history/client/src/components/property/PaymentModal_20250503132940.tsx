@@ -40,9 +40,7 @@ export default function PaymentModal({ isOpen, onClose, onConfirm }: PaymentModa
     handleFlutterPayment({
       callback: (response) => {
         if (response.status === 'successful') {
-          if (onConfirm) {
-            onConfirm();
-          }
+          onConfirm();
         }
         closePaymentModal();
       },

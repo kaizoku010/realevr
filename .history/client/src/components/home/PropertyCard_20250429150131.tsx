@@ -122,8 +122,7 @@ const handlePaymentConfirm = async (response: any) => {
               View Tour
             </Link>
           </div>
-          <Button
-          id="btn" 
+          <Button 
             variant="outline" 
             className="w-full text-sm h-8 border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F]/5 transition-colors"
             onClick={handleScheduleClick}
