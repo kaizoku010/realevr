@@ -10,13 +10,35 @@ export default function FeaturedTour() {
   // Get all properties and select the one with the most reviews (most viewed)
   const { data: properties, isLoading, error } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
+    onSuccess: (data) => console.log("Properties loaded successfully:", data),
+    onError: (err) => console.error("Error loading properties:", err)
   });
-
-  console.log("Properties:", properties);
   
   // Find the property with the highest review count (most viewed)
   const featuredProperty = properties?.sort((a, b) => b.reviewCount - a.reviewCount)[0];
+  interface FeaturedProperty extends Property {
+    reviewCount: number;
+    tourUrl?: string;
+  }
 
+  interface VirtualTourProps {
+    tourUrl: string;
+    isFullscreen: boolean;
+  }
+
+  interface BookingCalendarModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    propertyId: string;
+    propertyTitle: string;
+  }
+
+  interface SharePropertyModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    propertyId: string;
+    propertyTitle: string;
+  }
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);

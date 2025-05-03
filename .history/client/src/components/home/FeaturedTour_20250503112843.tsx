@@ -10,9 +10,9 @@ export default function FeaturedTour() {
   // Get all properties and select the one with the most reviews (most viewed)
   const { data: properties, isLoading, error } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
+    onSuccess: (data) => console.log("Properties loaded successfully:", data),
+    onError: (err) => console.error("Error loading properties:", err)
   });
-
-  console.log("Properties:", properties);
   
   // Find the property with the highest review count (most viewed)
   const featuredProperty = properties?.sort((a, b) => b.reviewCount - a.reviewCount)[0];

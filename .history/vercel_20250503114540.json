@@ -1,7 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build && cp -r server dist/",
-  "outputDirectory": "dist/public",
+  "buildCommand": "npm run build && cp -r server dist/",  "outputDirectory": "dist/public",
   "framework": "vite",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
