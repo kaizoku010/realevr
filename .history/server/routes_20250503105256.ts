@@ -194,12 +194,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       );
 
-      const data = await response.json() as { status: string; data?: { status: string; amount: number; currency: string } };
+      const data: { status: string; data?: { status: string; amount: number; currency: string } } = await response.json();
 
       // Check if the payment was successful
-      if (data.status === "success" && data.data?.status === "successful") {
+      if (data.status === "success" && data.data.status === "successful") {
         // For security: Verify the amount matches what you expect
-        const amount = data.data?.amount ?? 0;
+        const amount = data.data.amount;
         const currency = data.data.currency;
         
         // Standard package is 10,000 UGX
@@ -290,10 +290,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       );
 
-      const data = await response.json() as { status: string; data?: { status: string; amount: number; currency: string } };
+      const data = await response.json();
 
       // Check if the payment was successful
-      if (data.status === "success" && data?.data?.status === "successful") {
+      if (data.status === "success" && data.data.status === "successful") {
         // Calculate 5% of the property price as the deposit (or use fixed deposit amount)
         const expectedDepositAmount = property.price * 0.05;
         

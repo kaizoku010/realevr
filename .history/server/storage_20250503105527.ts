@@ -507,13 +507,7 @@ export class MemStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.userCurrentId++;
-    const user: User = { 
-      ...insertUser, 
-      id, 
-      membershipPlan: insertUser.membershipPlan ?? null, 
-      membershipStartDate: null, 
-      membershipEndDate: null 
-    };
+    const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
   }
@@ -532,7 +526,7 @@ export class MemStorage implements IStorage {
     const allFeatured = Array.from(this.properties.values()).filter(property => property.isFeatured);
     
     // Main showcase properties - one from each category
-    const mainShowcaseProperties: Property[] = [];
+    const mainShowcaseProperties = [];
     
     // Find one featured property from each category
     const categories = ["rental_units", "furnished_houses", "for_sale", "bank_sales"];
@@ -589,20 +583,7 @@ export class MemStorage implements IStorage {
   
   async createProperty(insertProperty: InsertProperty): Promise<Property> {
     const id = this.propertyCurrentId++;
-    const property: Property = { 
-      ...insertProperty, 
-      id, 
-      isFeatured: insertProperty.isFeatured ?? false,
-      hasTour: insertProperty.hasTour ?? false,
-      tourUrl: insertProperty.tourUrl ?? null,
-      amenities: insertProperty.amenities ?? null,
-      bankName: insertProperty.bankName ?? null,
-      auctionDate: insertProperty.auctionDate ?? null,
-      startingBid: insertProperty.startingBid ?? null,
-      currentBid: insertProperty.currentBid ?? null,
-      bidIncrement: insertProperty.bidIncrement ?? null,
-      auctionStatus: insertProperty.auctionStatus ?? null
-    };
+    const property: Property = { ...insertProperty, id };
     this.properties.set(id, property);
     return property;
   }

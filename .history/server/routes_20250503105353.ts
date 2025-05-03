@@ -290,16 +290,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       );
 
-      const data = await response.json() as { status: string; data?: { status: string; amount: number; currency: string } };
+      const data = await response.json();
 
       // Check if the payment was successful
-      if (data.status === "success" && data?.data?.status === "successful") {
+      if (data.status === "success" && data.data.status === "successful") {
         // Calculate 5% of the property price as the deposit (or use fixed deposit amount)
         const expectedDepositAmount = property.price * 0.05;
         
         // Verify the amount matches the expected deposit
         const amount = data.data.amount;
-        const currency = data.data.currency;
+        const currency = data?.data?.currency;
         
         // Allow some flexibility in the deposit amount (±5%)
         const lowerBound = expectedDepositAmount * 0.95;
