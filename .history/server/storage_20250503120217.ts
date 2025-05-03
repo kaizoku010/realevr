@@ -4,7 +4,6 @@ import {
   amenities, type Amenity, type InsertAmenity,
   propertyTypes, type PropertyType, type InsertPropertyType
 } from "@shared/schema";
-import { getDb } from './db';
 
 export interface IStorage {
   // User methods

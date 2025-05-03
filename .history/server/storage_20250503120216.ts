@@ -4,7 +4,6 @@ import {
   amenities, type Amenity, type InsertAmenity,
   propertyTypes, type PropertyType, type InsertPropertyType
 } from "@shared/schema";
-import { getDb } from './db';
 
 export interface IStorage {
   // User methods
@@ -642,12 +641,6 @@ export class MemStorage implements IStorage {
 }
 
 // export const storage = new MemStorage();
-export const storage = {
-  getAllProperties: async () => {
-    const db = getDb();
-    return await db.query.properties.findMany();
-  },
-  // Update other methods similarly
-};
+
 
 
